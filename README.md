@@ -1,8 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+test digitiamo: Sviluppare un'applicazione web che permetta di creare richieste HTTP e di analizzare poi le
+risposte, ricevendo informazioni anche sull'analisi dell'URL. Applicazione che salva tutte le
+richieste e le relative risposte in un database i cui dati possono essere poi sfogliati attraverso una
+pagina che prende nell'URL l'id della richiesta.
