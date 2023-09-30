@@ -1,0 +1,12 @@
+@import "./scss/helpers/all.scss";
+
+
+$primary-color: #3498db;
+
+h1 {
+    color: $primary-color;
+
+    &:hover {
+        color: darken($primary-color, 10%);
+    }
+}
