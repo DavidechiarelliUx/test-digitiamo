@@ -14,9 +14,11 @@ function App() {
   <div>
     <h1>Hello world</h1>
     <FormComponent/>
+    <div className="blockContainer">
     <UrlInfoBlock/>
     <HttpBlock1/>
     <HttpBlock2/>
+    </div>
   </div>
     </>
   )

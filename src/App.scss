@@ -10,3 +10,14 @@
 //         color: darken($primary-color, 10%);
 //     }
 // }
+
+
+// style block container:
+
+.blockContainer{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;  
+    gap: 20px; 
+    align-items: center;
+}
