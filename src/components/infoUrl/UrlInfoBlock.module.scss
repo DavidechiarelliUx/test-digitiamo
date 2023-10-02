@@ -1,0 +1,35 @@
+.container {
+    background-color: $background-url;
+    width: 200px;
+    height: 250px;
+    border-radius: 5px;
+}
+.p{
+    margin-left: 10px;
+    font-size: 12px;
+}
+.infoItem {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    background-color: $background-infoUrl;
+    margin-bottom: 2px;
+    justify-content: center;
+    font-size: 12px;
+    height: 45px;
+    padding-left: 10px;
+    &:last-child {
+        margin-bottom: 0; 
+    }
+
+    label {
+        position: absolute; // Aggiunto
+        top: 5px; 
+        font-weight: bold;
+    }
+
+    span {
+        position: absolute; // Aggiunto
+        bottom: 5px; 
+    }
+}
