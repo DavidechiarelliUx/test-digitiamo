@@ -7,15 +7,20 @@ import HttpBlock1 from './components/HttpRequestBlock1';
 import HttpBlock2 from './components/HttpRequestBlock2';
 
 function App() {
- 
+
+  const [submittedUrl, setSubmittedUrl] = useState("");
+
+  const handleFormSubmit = (url) => {
+    setSubmittedUrl(url);
+  };
 
   return (
     <>
   <div>
     <h1>Hello world</h1>
-    <FormComponent/>
+    <FormComponent onSubmit={handleFormSubmit}/>
     <div className="blockContainer">
-    <UrlInfoBlock/>
+    <UrlInfoBlock url={submittedUrl}/>
     <HttpBlock1/>
     <HttpBlock2/>
     </div>
