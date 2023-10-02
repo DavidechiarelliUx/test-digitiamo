@@ -15,7 +15,7 @@ const FormComponent = ({onSubmit}) => {
         onSubmit(inputUrl);
     };
     
-    // Funzione di utilità per controllare la validità di un URL
+    // Funzione per controllare la validità di un URL
     const isValidUrl = (string) => {
         try {
             new URL(string);
