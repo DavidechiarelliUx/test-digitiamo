@@ -59,3 +59,19 @@ select::-ms-expand {
         background: darken($button-send, 10%);
     }
 }
+
+.statusContainer {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.statusCode {
+    font-size: 40px;
+    color: black;
+    display: block;
+}
+
+.statusMessage {
+    font-size: 15px;
+    display: block;
+}
