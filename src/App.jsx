@@ -5,6 +5,7 @@ import FormComponent from './components/form-component';
 import UrlInfoBlock from './components/infoUrl';
 import HttpBlock1 from './components/HttpRequestBlock1';
 import HttpBlock2 from './components/HttpRequestBlock2';
+import ShareLink from './components/share-link-component';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
     <HttpBlock1/>
     <HttpBlock2/>
     </div>
+    <ShareLink/>
   </div>
     </>
   )
