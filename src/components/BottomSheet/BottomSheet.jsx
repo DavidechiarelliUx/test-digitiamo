@@ -30,6 +30,7 @@ function BottomSheet() {
   return (
     <animated.div
       {...bind()}
+      className={Styles.BottomSheet}
       style={{
         transform: props.y.to(y => `translateY(${y}px)`),
         position: 'absolute',

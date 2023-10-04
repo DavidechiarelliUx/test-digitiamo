@@ -4,5 +4,18 @@
     background-color: $bar ;
     border-radius: 4px;
     margin: 8px auto 16px auto;
-  }
-  
+}
+
+@media (max-width: 768px) {
+    .BottomSheet {
+        display: block; 
+    }
+}
+
+// nascondo per i dispositivi dai 769px in su
+@media (min-width: 769px) {
+    .BottomSheet {
+      display: none;
+    }
+}
+
