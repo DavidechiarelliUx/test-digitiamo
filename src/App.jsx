@@ -6,6 +6,7 @@ import UrlInfoBlock from './components/infoUrl';
 import HttpBlock1 from './components/HttpRequestBlock1';
 import HttpBlock2 from './components/HttpRequestBlock2';
 import ShareLink from './components/share-link-component';
+import BottomSheet from './components/BottomSheet';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
     </div>
     <ShareLink/>
   </div>
+  <BottomSheet/>
     </>
   )
 }
