@@ -3,14 +3,16 @@ import { useSpring, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
 
 import Styles from './BottomSheet.module.scss';
-// import Speedometer from '../Speedometer';
+
 import SpeedometerComponent from '../Speedometer'
+import SpeedometerComponent2 from '../Speedometer2'
+
 function BottomSheet() {
   const [props, set] = useSpring(() => ({
-    y: 450,
+    y: 835,
   }));
 
-  const [offset, setOffset] = useState(450);
+  const [offset, setOffset] = useState(835);
 
   const bind = useDrag(({ movement: [mx, my], down }) => {
     if (down) {
@@ -20,8 +22,8 @@ function BottomSheet() {
         setOffset(0);
         set({ y: 0, immediate: false });
       } else {
-        setOffset(450);
-        set({ y: 450, immediate: false });
+        setOffset(835);
+        set({ y:835, immediate: false });
       }
     }
   });
@@ -36,7 +38,7 @@ function BottomSheet() {
         bottom: 0,
         left: 0,
         right: 0,
-        height: '350px',
+        height: '700px',
         background: 'white',
         borderTopLeftRadius: '15px',
         borderTopRightRadius: '15px',
@@ -49,6 +51,8 @@ function BottomSheet() {
       </div>
       {/* <Speedometer /> */}
       <SpeedometerComponent/>
+      <div className={Styles.margin}></div>
+      <SpeedometerComponent2/>
     </animated.div>
   );
 }
