@@ -75,3 +75,27 @@ select::-ms-expand {
     font-size: 15px;
     display: block;
 }
+
+/* ... (tutti gli altri stili rimangono inalterati) */
+
+.sendText {
+    display: block; 
+}
+
+.iconWrapper {
+    display: none; 
+}
+
+/* Quando la larghezza della viewport è 678px o inferiore */
+@media (max-width: 678px) {
+    .sendText {
+        display: none;
+    }
+
+    .iconWrapper {
+        display: block;
+    }
+    .form{
+        width:77%;
+    }
+}
