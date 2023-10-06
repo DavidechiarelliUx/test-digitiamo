@@ -91,11 +91,14 @@ select::-ms-expand {
     .sendText {
         display: none;
     }
-
+.button{
+    margin-left: -50px;
+    padding:10px;
+}
     .iconWrapper {
         display: block;
     }
     .form{
-        width:77%;
+        width:80%;
     }
 }

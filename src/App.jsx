@@ -19,7 +19,6 @@ function App() {
   return (
     <>
   <div>
-    <h1>Hello world</h1>
     <FormComponent onSubmit={handleFormSubmit}/>
     <div className="blockContainer">
     <UrlInfoBlock url={submittedUrl}/>
