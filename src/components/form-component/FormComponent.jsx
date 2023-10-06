@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import styles from "./FormComponent.module.scss";
 
+import { SearchIcon } from "../../icon/index";
+
+
 const FormComponent = ({onSubmit}) => {
 
     const [inputUrl, setInputUrl] = useState("");
@@ -50,13 +53,16 @@ const FormComponent = ({onSubmit}) => {
                 </select>
                 
                 <input type="url"
-                className={styles.input}
-                placeholder="Inserisci URL"
-                value={inputUrl}
-                onChange={(e) => setInputUrl(e.target.value)}
-                />
-
-                <button type="submit" className={styles.button}>SEND</button>
+                    className={styles.input}
+                    placeholder="Inserisci URL"
+                    value={inputUrl}
+                    onChange={(e) => setInputUrl(e.target.value)}
+                    />
+                <button type="submit" className={styles.button}>
+                    <span className={styles.sendText}>SEND</span>
+                    <span className={styles.iconWrapper}><SearchIcon/></span>
+                </button>
+                
             </form>
         </>
     );
