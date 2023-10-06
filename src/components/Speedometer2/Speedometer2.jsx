@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactSpeedometer from "react-d3-speedometer";
-import styles from "./Speedometer.module.scss";
+import styles from "./Speedometer2.module.scss";
 
-const SpeedometerComponent = () => {
+const SpeedometerComponent2 = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -25,6 +25,7 @@ const SpeedometerComponent = () => {
     <>
     <div className={styles.wrapper}>
       <ReactSpeedometer
+        className={styles.speedometer}
         {...data} 
         needleColor={needleColor}
         width={300}
@@ -33,10 +34,10 @@ const SpeedometerComponent = () => {
       <div className={styles.valueLabel}>
         <span>{data.value}<br />{label}</span>
       </div>
-    <div className={styles.pageLoadInfo}>
-      <h2>Page Load</h2>
-      <span>0.4s</span>
     </div>
+    <div className={styles.pageLoadInfo}>
+      <h2>First Interaction</h2>
+      <span>0.9s</span>
     </div>
    
     </>
@@ -51,4 +52,4 @@ const getLabelInfoForValue = (value, labels) => {
   };
 };
 
-export default SpeedometerComponent;
+export default SpeedometerComponent2;
