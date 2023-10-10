@@ -1,39 +1,48 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "./FormComponent.module.scss";
-
 import { SearchIcon } from "../../icon/index";
 
-
-const FormComponent = ({onSubmit}) => {
-
+const FormComponent = ({ onSubmit }) => {
     const [inputUrl, setInputUrl] = useState("");
-    const [statusMessage, setStatusMessage] = useState("");
-    const [status,setStatus] = useState(null)
+    const [status, setStatus] = useState(null);
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!isValidUrl(inputUrl)) {
-            alert("Per favore inserisci un URL valido");
-            setStatus(null);
-            return;
-        }
-        onSubmit(inputUrl);
-        setStatus({ code: "200", message: "Everything is fine" });
-    };
+    const httpMethod = e.target.elements.httpMethod.value;
+
+    if (!isValidUrl(inputUrl)) {
+        alert("Per favore inserisci un URL valido");
+        setStatus(null);
+        return;
+    }
+
+    try {
+            const response = await fetch('https://api.npoint.io/0d69fb28f4d6f7bc48e7');
+            const data = await response.json();
     
-    // Funzione di utilità per controllare la validità di un URL
-    const isValidUrl = (string) => {
-        try {
-            new URL(string);
-            return true;
-        } catch (_) {
-            return false;  
-        }
-    };
-    
-    return (
+            if (data[httpMethod]) {
+                const responseData = data[httpMethod].response;
+                    setStatus({ code: data[httpMethod].status, message: responseData.message });
+                    onSubmit(inputUrl);
+                } else {
+                    setStatus({ code: "500", message: "Errore durante la chiamata" });
+                }
+        } catch (error) {
+                console.error("Errore durante la chiamata:", error);
+                setStatus({ code: "500", message: "Errore durante la chiamata" });
+                }
+        };
+
+            const isValidUrl = (string) => {
+                try {
+                    new URL(string);
+                    return true;
+                } catch (_) {
+                    return false;
+                }
+            };
+
+        return (
         <>
             {status && (
                 <div className={styles.statusContainer}>
@@ -42,31 +51,32 @@ const FormComponent = ({onSubmit}) => {
                 </div>
             )}
             <form className={styles.form} onSubmit={handleSubmit}>
-                <select className={styles.select}>
-                    {/* aggiunta dei metodi http*/}
-                    <option value="GET">GET</option>
-                    <option value="POST">POST</option>
-                    <option value="PUT">PUT</option>
-                    <option value="DELETE">DELETE</option>
-                    <option value="INFO">INFO</option>
-                    <option value="DUMB">DUMB</option>
+                <select name="httpMethod" className={styles.select}>
+                {/* Aggiunta dei metodi HTTP dal file JSON */}
+                    <option value="metodoGet">GET</option>
+                    <option value="metodoPost">POST</option>
+                    <option value="metodoPut">PUT</option>
+                    <option value="metodoDelete">DELETE</option>
+                    <option value="metodoInfo">INFO</option>
+                    <option value="metodoDumb">DUMB</option>
                 </select>
-                
-                <input type="url"
+
+                <input
+                    type="url"
                     className={styles.input}
                     placeholder="Inserisci URL"
                     value={inputUrl}
                     onChange={(e) => setInputUrl(e.target.value)}
-                    />
+                />
                 <button type="submit" className={styles.button}>
                     <span className={styles.sendText}>SEND</span>
-                    <span className={styles.iconWrapper}><SearchIcon/></span>
+                    <span className={styles.iconWrapper}>
+                    <SearchIcon />
+                    </span>
                 </button>
-                
             </form>
         </>
-    );
+        );
 };
-
 
 export default FormComponent;
